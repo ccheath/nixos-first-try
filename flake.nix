@@ -33,11 +33,11 @@
       };
 
       # ----- USER SETTINGS ----- #
-      userSettings = {
+      userSettings = rec {
         username = "chris"; # username
         name = "Chris"; # name/identifier
         email = "heath9311@gmail.com"; # email (used for certain configurations)
-        dotfilesDir = "~/.dotfiles"; # 
+        dotfilesDir = "/home/" + username + "/.dotfiles"; # 
       };
 
 
