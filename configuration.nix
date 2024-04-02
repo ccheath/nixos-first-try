@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, userSettings, systemSettings, ... }:
+{ config, lib, pkgs, userSettings, systemSettings, ... }:
 
 {
   imports =
@@ -134,10 +134,28 @@
   services.spice-vdagentd.enable = true;
 
   nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
+    #package = pkgs.nixUnstable;
+    #extraOptions = ''
+    #  experimental-features = nix-command flakes
+    #'';
+    settings = {
+      trusted-users = [ "root" "@wheel" ];
+
+      auto-optimise-store = lib.mkDefault true;
+      experimental-features = [ "nix-command" "flakes" "repl-flake" ];
+    };
+
+    # Garbage Collection
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      randomizedDelaySec = "14m";
+      # Keep the last 5 generations
+      options = "--delete-older-than +5";
+    };
+  
   };
+
+
 
 }

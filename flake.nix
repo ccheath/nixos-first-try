@@ -16,7 +16,8 @@
   outputs = { self, nixpkgs, home-manager, ... }:
     let
       system = "x86_64-linux";
-      lib = nixpkgs.lib;
+      #lib = nixpkgs.lib;
+      lib = nixpkgs.lib // home-manager.lib;
       pkgs = nixpkgs.legacyPackages.${system};
 
     
@@ -42,6 +43,9 @@
 
 
     in {
+
+      inherit lib;
+      
       nixosConfigurations = {
         ${systemSettings.hostname} = lib.nixosSystem {
           inherit system;
