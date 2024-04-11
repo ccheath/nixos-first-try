@@ -21,6 +21,7 @@
     git
     cowsay
     neofetch
+    fortune
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -31,7 +32,7 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
-   ".bashrc".source = dotfiles/bashrc
+   ".bashrc".source = dotfiles/bashrc;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
