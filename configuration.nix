@@ -153,9 +153,18 @@
       # Keep the last 5 generations
       options = "--delete-older-than +5";
     };
-  
   };
 
+  
+  fonts.packages = [ 
+    (pkgs.nerdfonts.override { 
+      fonts = [ 
+        "Meslo" 
+        "FiraCode" 
+        "FiraMono" 
+      ]; 
+    })
+  ];
 
 
 }

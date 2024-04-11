@@ -19,6 +19,8 @@
   # environment.
   home.packages = with pkgs; [
     git
+    cowsay
+    neofetch
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -28,6 +30,8 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
+
+   ".bashrc".source = dotfiles/bashrc
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -67,14 +71,14 @@
   };
 
   programs.vscode = {
-  enable = true;
-  package = pkgs.vscodium;
-  extensions = with pkgs.vscode-extensions; [
+   enable = true;
+   package = pkgs.vscodium;
+   extensions = with pkgs.vscode-extensions; [
     dracula-theme.theme-dracula
     #vscodevim.vim
     #yzhang.markdown-all-in-one
-  ];
-};
+   ];
+  };
 
 
 }
