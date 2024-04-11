@@ -123,7 +123,7 @@ if ! shopt -oq posix; then
   fi
 fi
 neofetch
-cowsay -f $(ls /usr/share/cowsay/cows/ | shuf -n1) $(fortune)
+cowsay -f $(ls $(dirname $(dirname $(readlink -f $(which cowsay))))/share/cowsay/cows/  | shuf -n1) $(fortune)
 
 #skiptracer shortcut
 #alias skiptracer='sudo python ~/osint/skiptracer/skiptracer.py'
