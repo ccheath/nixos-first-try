@@ -159,6 +159,7 @@
   fonts.packages = [ 
     (pkgs.nerdfonts.override { 
       fonts = [ 
+        "JetBrainsMono"
         "DroidSansMono"
         "FiraCode" 
         "FiraMono" 
