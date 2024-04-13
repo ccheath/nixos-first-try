@@ -33,6 +33,12 @@
     # ".screenrc".source = dotfiles/screenrc;
 
    ".bashrc".source = dotfiles/bashrc;
+   "cowsay" = {
+     source = builtins.fetchGit {
+       url = "https://github.com/paulkaefer/cowsay-files/";
+       rev = "d024d40ac3f02659ac82536f6b635e5ae506aaa2";
+     };
+   };
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -60,7 +66,9 @@
   programs.home-manager.enable = true;
 
 
-  programs.git = {
+  programs = {
+
+  git = {
     enable = true;
     userName = userSettings.name;
     userEmail = userSettings.email;
@@ -71,7 +79,7 @@
     };
   };
 
-  programs.vscode = {
+  vscode = {
    enable = true;
    package = pkgs.vscodium;
    extensions = with pkgs.vscode-extensions; [
@@ -81,7 +89,20 @@
    ];
   };
 
+  gnome-terminal = {
+    enable = true;
+    profile."7bd1372f-66a2-4704-8bb5-7d7ed0dd8ac7" = {
+      default = true;
+      visibleName = "chris";
+      font = "JetBrainsMono Nerd Font 12";
+    };
+  };
 
+
+
+
+  }; #end programs
+  
 
 
 }
