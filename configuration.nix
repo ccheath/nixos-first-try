@@ -159,9 +159,10 @@
   fonts.packages = [ 
     (pkgs.nerdfonts.override { 
       fonts = [ 
-        "Meslo" 
+        "DroidSansMono"
         "FiraCode" 
         "FiraMono" 
+        "Meslo" 
       ]; 
     })
   ];
