@@ -13,7 +13,7 @@
     # nixpkgs.url = "nixpkgs/{BRANCH-NAME}";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
       #lib = nixpkgs.lib;
@@ -65,6 +65,7 @@
             # pass config variables from above
             inherit systemSettings;
             inherit userSettings;
+            inherit inputs;
           };
         };
       };
